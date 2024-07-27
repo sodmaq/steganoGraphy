@@ -1,8 +1,8 @@
-const catchAsync = require('../utils/catchAsync');
-const PubAuth = require('../models/authority');
-const User = require('../models/user');
-const AppError = require('../utils/appError');
-const Email = require('../utils/email');
+const catchAsync = require("../utils/catchAsync");
+const PubAuth = require("../models/authority");
+const User = require("../models/user");
+const AppError = require("../utils/appError");
+const Email = require("../utils/email");
 
 exports.generateKeyFromAuthority = catchAsync(async (req, res, next) => {
   const { randomKey, senderEmail, receiverEmail } = req.body;
@@ -22,13 +22,13 @@ exports.generateKeyFromAuthority = catchAsync(async (req, res, next) => {
 
   const emailClient = new Email(
     existingUser2,
-    `${req.protocol}://${req.get('host').replace(/\d+$/, 3000)}/`
+    `${req.protocol}://${req.get("host").replace(/\d+$/, 3000)}/`
   );
 
   await emailClient.sendNotifyEmail();
 
   res.status(200).json({
-    status: 'success',
+    status: "success",
     data: { sessionKey: key },
   });
 });
@@ -46,11 +46,11 @@ exports.checkMeOnAuthority = catchAsync(async (req, res, next) => {
 
   if (!auth)
     return next(
-      new AppError('no authority For your email, may be the key expired', 401)
+      new AppError("no authority For your email, may be the key expired", 401)
     );
 
   res.status(200).json({
-    status: 'success',
+    status: "success",
     data: { sessionKey: auth.sessionKey },
   });
 });

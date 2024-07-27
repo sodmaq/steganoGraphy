@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { COLORS } from '../../../utils/colors';
-import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-import Tooltip from '@mui/material/Tooltip';
-import { setShowAlert, setAlertInfo } from '../../../redux/alertSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { CardContent } from '@mui/material';
-import Decrypt from './Decrypt';
-import Encrypt from './Encrypt';
-import PublicAuth from './PublicAuth';
-import { Encode, Decode } from './Steg';
-import Encrypt2 from './Encrypt2';
-import Decrypt2 from './Decrypt2';
+import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { COLORS } from "../../../utils/colors";
+import AppBar from "@mui/material/AppBar";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import PropTypes from "prop-types";
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
+import Tooltip from "@mui/material/Tooltip";
+import { setShowAlert, setAlertInfo } from "../../../redux/alertSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { CardContent } from "@mui/material";
+import Decrypt from "./Decrypt";
+import Encrypt from "./Encrypt";
+import PublicAuth from "./PublicAuth";
+import { Encode, Decode } from "./Steg";
+import Encrypt2 from "./Encrypt2";
+import Decrypt2 from "./Decrypt2";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,7 +52,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -67,8 +67,8 @@ export const HomeSteg = (props) => {
     dispatch(
       // redux with alert
       setAlertInfo({
-        severity: 'success',
-        message: 'Wellcom To SafeSteg 🫡',
+        severity: "success",
+        message: "Wellcom To SafeSteg 🫡",
       })
     );
     dispatch(setShowAlert(true));
@@ -85,27 +85,27 @@ export const HomeSteg = (props) => {
 
   return (
     <div>
-      <Card sx={{ borderRadius: '0px' }}>
+      <Card sx={{ borderRadius: "0px" }}>
         <CardMedia
           sx={{
             height: 300,
-            width: '100%',
-            objectFit: 'cover',
+            width: "100%",
+            objectFit: "cover",
           }}
           image="/imgs/backg.jpg"
           title="Cover"
         />
         <CardContent
           style={{
-            position: 'absolute',
-            right: '50%',
-            transform: 'translateX(50%)',
-            top: '12%',
+            position: "absolute",
+            right: "50%",
+            transform: "translateX(50%)",
+            top: "12%",
             backgroundColor: COLORS.mainColor,
             opacity: 0.9,
-            padding: '28px 50px',
-            borderRadius: '5px',
-            'box-shadow': '0 0 10px',
+            padding: "28px 50px",
+            borderRadius: "5px",
+            "box-shadow": "0 0 10px",
           }}
         >
           <Typography fontSize={35} fontWeight={700} color="white">
@@ -115,7 +115,7 @@ export const HomeSteg = (props) => {
       </Card>
       <AppBar
         sx={{
-          backgroundImage: 'linear-gradient(to right bottom, #49caff, #003e81)',
+          backgroundImage: "linear-gradient(to right bottom, #49caff, #003e81)",
         }}
         position="static"
       >
@@ -129,7 +129,7 @@ export const HomeSteg = (props) => {
           // scrollButtons="auto"
           // centered
           aria-label="full width tabs example"
-          style={{ display: 'flex', justifyContent: 'center' }}
+          style={{ display: "flex", justifyContent: "center" }}
         >
           <Tooltip title="Encode a text in a image">
             <Tab
@@ -155,7 +155,7 @@ export const HomeSteg = (props) => {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >

@@ -1,17 +1,22 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React from 'react';
-import Alert from './utils/alert';
-import { Stack, Skeleton } from '@mui/material';
-import { SignIn } from './components/auth/SignIn';
-import { SignUp } from './components/auth/SignUp';
-import { ForgetPassword } from './components/auth/ForgetPassword';
-import { ResetPassword } from './components/auth/ResetPassword';
-import { Page404 } from './utils/Page404';
-import { useSelector } from 'react-redux';
-import { Navbar } from './components/pages/NavBar/NavBar';
-import { HomeSteg } from './components/pages/Home/Homestg';
-import { ProfilePage } from './components/pages/user/Profile';
+import "./index.css";
+import "./style.css";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import Alert from "./utils/alert";
+import { Stack, Skeleton } from "@mui/material";
+import { SignIn } from "./components/auth/SignIn";
+import { SignUp } from "./components/auth/SignUp";
+import { ForgetPassword } from "./components/auth/ForgetPassword";
+import { ResetPassword } from "./components/auth/ResetPassword";
+import { Page404 } from "./utils/Page404";
+import Landingpage from "./components/Landingpage";
+// import Page404 from "./utils/Page404";
+
+import { useSelector } from "react-redux";
+import { Navbar } from "./components/pages/NavBar/NavBar";
+import { HomeSteg } from "./components/pages/Home/Homestg";
+import { ProfilePage } from "./components/pages/user/Profile";
 
 function App() {
   const { showAlert, alertInfo } = useSelector((state) => state.alert);
@@ -50,7 +55,7 @@ function App() {
               path="/resetpassword/:resetToken"
               element={<ResetPassword />}
             />
-            <Route path="/" element={user ? <HomeSteg /> : <Page404 />} />
+            <Route path="/" element={user ? <HomeSteg /> : <Landingpage />} />
             <Route path="/me" element={user ? <ProfilePage /> : <Page404 />} />
             <Route path="*" element={<Page404 />} />
           </Routes>

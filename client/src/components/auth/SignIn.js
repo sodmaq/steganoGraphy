@@ -1,28 +1,28 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Alert from '../../utils/alert';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useNavigate } from 'react-router-dom';
-import { COLORS } from '../../utils/colors';
-import { fetchWrapper } from '../../utils/fetchWrapper';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/userSlice';
-import { setShowAlert, setAlertInfo } from '../../redux/alertSlice';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Alert from "../../utils/alert";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useNavigate } from "react-router-dom";
+import { COLORS } from "../../utils/colors";
+import { fetchWrapper } from "../../utils/fetchWrapper";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/userSlice";
+import { setShowAlert, setAlertInfo } from "../../redux/alertSlice";
 function Copyright(props) {
   return (
     <Typography
@@ -31,12 +31,12 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="#">
         SafeSteg
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -59,23 +59,23 @@ export const SignIn = () => {
     const formData = new FormData(event.currentTarget);
 
     const { message, data, status, loading } = await fetchWrapper(
-      '/users/signin',
-      'POST',
+      "/users/signin",
+      "POST",
       JSON.stringify({
-        email: formData.get('email'),
-        password: formData.get('password'),
+        email: formData.get("email"),
+        password: formData.get("password"),
       }),
       {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       }
     );
-    if (status === 'success') {
+    if (status === "success") {
       console.log(data);
       dispatch(setUser(data.user));
       dispatch(
         setAlertInfo({
-          severity: 'success',
-          message: 'Wellcome To Our Steganographer💖',
+          severity: "success",
+          message: "Wellcome To Our Steganographer💖",
         })
       );
       dispatch(setShowAlert(true));
@@ -83,14 +83,14 @@ export const SignIn = () => {
         dispatch(setShowAlert(false));
       }, 3000);
       setTimeout(() => {
-        his('/');
+        his("/");
         window.location.reload();
       }, 3000);
     } else {
       dispatch(
         setAlertInfo({
-          severity: 'error',
-          title: 'try again',
+          severity: "error",
+          title: "try again",
           message,
         })
       );
@@ -108,15 +108,15 @@ export const SignIn = () => {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <Avatar
             sx={{
               m: 1,
-              bgcolor: 'secondary.main',
+              bgcolor: "secondary.main",
               backgroundColor: COLORS.mainColor,
             }}
           >
@@ -151,14 +151,14 @@ export const SignIn = () => {
               fullWidth
               name="password"
               label="Password"
-              type={showPass ? 'text' : 'password'}
+              type={showPass ? "text" : "password"}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
                       onClick={handleToggleShowPass}
                       edge="end"
-                      style={{ width: '50px' }}
+                      style={{ width: "50px" }}
                     >
                       {showPass ? <VisibilityOff /> : <Visibility />}
                     </IconButton>

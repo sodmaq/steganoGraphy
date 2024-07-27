@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 // ----------------------------------------------------------------------
-import * as React from 'react';
+import * as React from "react";
 
 export const Page404 = () => {
   return (
@@ -28,3 +28,15 @@ export const Page404 = () => {
     </>
   );
 };
+
+// import React from "react";
+
+// function Page404({ onProceed }) {
+//   return (
+//     <div>
+//       <h1>Welcome to the Landing Page</h1>
+//       <button onClick={onProceed}>Enter</button>
+//     </div>
+//   );
+// }
+// export default Page404;
