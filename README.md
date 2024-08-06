@@ -190,4 +190,3 @@ JWT authentication using cookies combines the benefits of JWTs with the enhanced
 ## Conclusion
 The steganographer project provides a web-based solution for securely hiding and extracting text messages within image and audio files. With its symmetric encryption, independent Public Authority, and security-focused features, the application offers a robust means of communication. You are welcome to explore the codebase and customize it to suit your specific requirements.
 
-If you have any questions or concerns, please don't hesitate to contact the project maintainers at myehia162@gmail.com
